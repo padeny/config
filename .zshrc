@@ -63,7 +63,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autojump osx
+  git autojump osx go
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias peg="ps -ef|grep"
+alias del="trash"
 
 # custome
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
@@ -104,4 +105,15 @@ alias peg="ps -ef|grep"
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
-cd ./Dropbox/workspace
+
+function docker_ip() {
+    sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1
+}
+
+function ip() {
+    /sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"
+}
+# go
+export GOROOT=/usr/local/go 
+export GOPATH=$HOME/Dropbox/workspace/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
