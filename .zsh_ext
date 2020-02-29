@@ -1,0 +1,39 @@
+alias peg="ps -ef|grep"
+alias del="trash"
+alias py3="python3"
+alias ipy3="ipython3"
+
+# custome
+[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+
+function docker_ip() {
+    sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' $1
+}
+
+function ip() {
+    /sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:"
+}
+# go
+export GOROOT=/usr/local/go 
+export GOPATH=$HOME/go
+export GOPROXY=https://goproxy.cn
+export GO111MODULE=on
+
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# flutter
+export PATH=$PATH:$HOME/development/flutter/bin
+
+# homebrew
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
+
+# zsh autosuggestions
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
