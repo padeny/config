@@ -63,7 +63,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git autojump osx go
+  git autojump macos golang
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
@@ -102,3 +102,5 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zsh_ext ]; then
     . ~/.zsh_ext
 fi
+
+[[ -s "/Users/padeny/.gvm/scripts/gvm" ]] && source "/Users/padeny/.gvm/scripts/gvm"

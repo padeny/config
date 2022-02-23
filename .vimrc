@@ -31,8 +31,8 @@ Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-scripts/TeTrIs.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'uguu-org/vim-matrix-screensaver'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'uguu-org/vim-matrix-screensaver'
 "Plugin 'ambv/black'
 call vundle#end()            " required
 filetype plugin indent on    " required

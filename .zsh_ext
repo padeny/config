@@ -2,6 +2,8 @@ alias peg="ps -ef|grep"
 alias del="trash"
 alias py3="python3"
 alias ipy3="ipython3"
+alias dps="docker ps"
+alias woman="tldr"
 
 # custome
 [[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && . ~/.autojump/etc/profile.d/autojump.sh
@@ -29,11 +31,14 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-# flutter
-export PATH=$PATH:$HOME/development/flutter/bin
-
 # homebrew
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
 
 # zsh autosuggestions
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+# psql
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+export PYENV_ROOT=~/.pyenv
+export PATH=$PYENV_ROOT/shims:$PATH
